@@ -74,23 +74,23 @@ export default function Home() {
       </section>
       <div className="my-16 border-t pt-8"></div> 
       <footer className="text-center py-8">
-        <h2 className="text-2xl font-bold mb-4">함께 소통해요!</h2>
+        <h2 className="text-2xl font-bold mb-4">Contact Me!</h2>
         <div className="flex justify-center gap-6 mb-4">
-          <Link href="" target="_blank" aria-label="YouTube Channel">
-            <FaYoutube className="w-8 h-8 text-red-600 hover:text-red-700 transition" />
+          <Link href="https://x.com/MyGameDevStudio " target="_blank" aria-label="X Profile">
+            <FaXTwitter className="w-8 h-8 text-gray-700 hover:text-white transition" />
           </Link>
-          <Link href="" target="_blank" aria-label="X Profile">
-            <FaXTwitter className="w-8 h-8 text-black dark:text-white hover:text-gray-500 transition" />
+          <Link href="https://www.youtube.com/@MyGame-Dev" target="_blank" aria-label="YouTube Channel">
+            <FaYoutube className="w-8 h-8 text-gray-700 hover:text-red-700 transition" />
           </Link>
-          <Link href="" target="_blank" aria-label="GitHub Repository">
-            <FaGithub className="w-8 h-8 text-gray-700 dark:text-gray-300 hover:text-gray-500 transition" />
+          <Link href="https://github.com/mygamedev-studio" target="_blank" aria-label="GitHub Repository">
+            <FaGithub className="w-8 h-8 text-gray-700 dark:text-gray-300 hover:text-white transition" />
           </Link>
         </div>
         <p className="text-sm text-gray-500 mt-4">
-          © {new Date().getFullYear()} [블로그 이름]. All rights reserved.
+          © {new Date().getFullYear()} My Game Dev Blog. All rights reserved.
         </p>
         <p className="text-sm text-gray-500">
-          피드백이나 질문은 유튜브 댓글로 남겨주시면 가장 빠르게 답변해드립니다.
+          피드백이나 질문은 X로 남겨주시면 가장 빠르게 답변해드립니다.
         </p>
       </footer>
     </main>
