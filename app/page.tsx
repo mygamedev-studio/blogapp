@@ -90,8 +90,7 @@ export default function Home() {
           © {new Date().getFullYear()} My Game Dev Blog. All rights reserved.
         </p>
         <p className="text-sm text-gray-500">
-          Please gibe me Feedback or questions on X.  
-          피드백이나 질문은 X로 남겨주시면 가장 빠르게 답변해드립니다.
+          Please give me Feedback or questions on X.
         </p>
       </footer>
     </main>
