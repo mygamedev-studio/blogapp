@@ -3,6 +3,7 @@ import { Orbit } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
 import { detectConflictingPaths } from "next/dist/build/utils";
+import StickyHeader from "@/components/StickyHeader";
 
 export const metadata: Metadata = {
   title: "My Game Dev Blog",
@@ -56,21 +57,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const header = (
-    <header>
-      <Link href="/">
-        <div className="text-center bg-slate-800 p-8 my-6 rounded-md">
-          <h1 className="text-3xl text-white font-bold">
-            {" "}
-            My Game Dev Blog
-          </h1>
-
-          <p className="text-slate-300">🤟 Welcome to my Game Dev blog 🕹️</p>
-        </div>
-      </Link>
-    </header>
-  );
-
   const footer = (
     <footer>
       <div className="border-t border-slate-500 mt-6 py-6 text-center text-slate-400">
@@ -83,7 +69,7 @@ export default function RootLayout({
     <html lang="ko">
       <body className={`${orbitFont.className} `}>
         <div className="mx-auto max-w-3xl px-4">
-          {header}
+          <StickyHeader />
           {children}
           {footer}
         </div>

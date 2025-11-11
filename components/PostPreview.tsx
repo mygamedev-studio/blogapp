@@ -4,7 +4,7 @@ import { PostMetaData } from "./PostMetaData";
 const PostPreview = (props: PostMetaData) => {
   return (
     <Link href={`/posts/${props.slug}`}>
-      <div className="flex h-36 flex-col justify-between rounded-md bg-slate-800 p-4">
+      <div className="flex h-36 flex-col justify-between rounded-md bg-slate-800 p-4 shadow-inner shadow-slate-600">
         <div className="grow">
           <h2 className="truncate font-bold text-blue-300 hover:underline">
             {props.title}
