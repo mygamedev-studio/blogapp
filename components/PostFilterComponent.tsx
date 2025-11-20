@@ -19,7 +19,7 @@ export default function PostFilterComponent({
     (tag) => tag !== "blog",
   );
 
-  const filteredPosts =
+  const filteredPosts = 
     selectedTag && selectedTag !== "all"
       ? sortedPosts.filter((post) => post.tags.includes(selectedTag))
       : sortedPosts;

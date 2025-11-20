@@ -15,7 +15,7 @@ export default function StickyHeader() {
         <div className="flex justify-center items-center bg-slate-800 p-4 my-6 rounded-md">
           <img src='/images/logo.png' width={60} height={30}/>
           <h1 className="text-3xl text-white font-bold">
-            &nbsp;Game Dev Blog🕹️
+            &nbsp;GameDev Blog
           </h1>
         </div>
       </Link>

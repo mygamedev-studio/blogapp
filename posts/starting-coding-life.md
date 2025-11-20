@@ -3,7 +3,7 @@ title: 코딩라이프 시작
 subtitle: 게임 덕후, 공장 설계도를 버리고 코드를 짠 사연 (feat. 아빠되니 인생역전)
 date: 2025-10-30
 tags:
-  - self-intro
+  - SelfIntro
   - blog
 ---
 
