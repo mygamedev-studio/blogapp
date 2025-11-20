@@ -30,15 +30,14 @@ export default function Home() {
         className="py-4 px-4 my-8 text-center bg-gray-800 rounded-2xl shadow-lg "
       >
         <div className="text-2xl tracking-tight">
-        <p>초보 개발자의</p>
-        <p>게임 개발 성장일지</p>
-        <p >(feat. Flame Engine)</p>
+          <p>초보 개발자의</p>
+          <p>게임 개발 성장일지</p>
+          <p>(feat. Flame Engine)</p>
         </div>
-        <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-6">
-          게임 개발 무경험자가 Flutter의 Flame Engine으로 게임을 완성하는 과정을
-          기록합니다.
-        </p>
-
+        <div className="text-xl text-slate-400 max-w-2xl mx-auto mb-6">
+          <p>게임 개발 무경험자가 Flutter의 Flame Engine으로</p>
+          <p>게임을 완성하는 과정을 기록합니다.</p>
+        </div>
         <Link href={flameEngineStartLink} passHref>
           <button className="bg-blue-600 hover:bg-blue-800 text-white py-3 px-8 rounded-md text-lg transition duration-300 shadow-xl shadow-slate-700">
             <p>🔥Flame Engine을 이용한</p>
@@ -52,14 +51,11 @@ export default function Home() {
           {recentPosts}
         </div>
       </section>
-      <div className="my-16 border-t pt-8"></div> 
+      <div className="my-16 border-t pt-8"></div>
       <section>
         <div className="text-2xl font-bold mb-6 border-b pb-2">
-
-        <h2>
-          ✨ Side Contents:
-        </h2>
-        <p>DB필요없는 정적 블로그 만들기 (feat. NextJS)</p>
+          <h2>✨ Side Contents:</h2>
+          <p>DB필요없는 정적 블로그 만들기 (feat. NextJS)</p>
         </div>
         <p className="text-lg text-gray-600 dark:text-gray-400 mb-6">
           지금 보고 계신 정적 블로그를 만드는 과정과 코드를 함께 공유합니다.
@@ -72,11 +68,11 @@ export default function Home() {
           </div>
         )}
       </section>
-      <div className="my-16 border-t pt-8"></div> 
+      <div className="my-16 border-t pt-8"></div>
       <section>
         <PostFilterContainer sortedPosts={sortedPosts} />
       </section>
-        <CustomFooter />
+      <CustomFooter />
     </main>
   );
 }

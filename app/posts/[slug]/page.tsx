@@ -50,12 +50,11 @@ const PostPage = async (props: any) => {
     );
   }
 
-
   return (
     <div>
-      <SeriesTreeToc 
-        seriesPosts={sortedSeriesPosts.slice().reverse()} 
-        currentSlug={slug} 
+      <SeriesTreeToc
+        seriesPosts={sortedSeriesPosts.slice().reverse()}
+        currentSlug={slug}
         seriesTitle={seriesTag!}
       />
       <div className="text-slate-400">
@@ -64,7 +63,7 @@ const PostPage = async (props: any) => {
           <Markdown>{post.content}</Markdown>
         </article>
       </div>
-       <SeriesNavigation seriesPosts={sortedSeriesPosts} currentSlug={slug} />
+      <SeriesNavigation seriesPosts={sortedSeriesPosts} currentSlug={slug} />
     </div>
   );
 };

@@ -28,21 +28,17 @@ export default function SeriesNavigation({
     return null; // 시리즈가 한 개뿐이거나 목록 오류 시 표시 안 함
   }
 
-  const buttonStyle = "block p-4 bg-slate-800 hover:bg-slate-700 rounded-lg transition"
-  const textStyle = "text-sm text-slate-400 block mb-1"
+  const buttonStyle =
+    "block p-4 bg-slate-800 hover:bg-slate-700 rounded-lg transition";
+  const textStyle = "text-sm text-slate-400 block mb-1";
 
   return (
     <div className="border-t border-b border-gray-300 my-8 py-6 grid grid-cols-2 gap-10">
-      {/* 이전 포스트 버튼 */} 
+      {/* 이전 포스트 버튼 */}
       <div className="text-left">
         {previousPost && (
-          <Link
-            href={`/posts/${previousPost.slug}`}
-            className={buttonStyle}
-          >
-            <span className={textStyle}>
-              ← Previous Post
-            </span>
+          <Link href={`/posts/${previousPost.slug}`} className={buttonStyle}>
+            <span className={textStyle}>← Previous Post</span>
             <h4 className="font-semibold">{previousPost.title}</h4>
           </Link>
         )}
@@ -51,13 +47,8 @@ export default function SeriesNavigation({
       {/* 다음 포스트 버튼 */}
       <div className="text-right">
         {nextPost && (
-          <Link
-            href={`/posts/${nextPost.slug}`}
-            className={buttonStyle}
-          >
-            <span className={textStyle}>
-              Next Post →
-            </span>
+          <Link href={`/posts/${nextPost.slug}`} className={buttonStyle}>
+            <span className={textStyle}>Next Post →</span>
             <h4 className="font-semibold">{nextPost.title}</h4>
           </Link>
         )}
