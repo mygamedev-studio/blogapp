@@ -36,7 +36,11 @@ export default function PostFilterContainer({
 
   return (
     <section>
-      <div className="text-2xl"> 🕹️ Blog Posts</div> <br />
+      <div className="text-2xl font-bold mb-6 border-b pb-2">
+        {" "}
+        🕹️ Blog Posts
+      </div>{" "}
+      <br />
       {/* 1. 태그 선택 버튼 부분 */}
       <div className="flex gap-2 overflow-x-auto pb-4 no-scrollbar">
         {/* 'All' 버튼 */}
@@ -66,6 +70,7 @@ export default function PostFilterContainer({
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {postPreviews}
       </div>
+      <div className="my-16 border-t pt-8"></div>
     </section>
   );
 }

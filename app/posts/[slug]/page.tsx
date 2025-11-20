@@ -9,6 +9,7 @@ import { PostMetaData } from "@/components/PostMetaData";
 import SeriesNavigation from "@/components/SeriesNavigation";
 import SeriesTreeToc from "@/components/SeriesTreeToc";
 import { notFound } from "next/navigation";
+import CustomFooter from "@/components/Footer";
 
 const getPostContent = async (slug: string) => {
   const folder = "posts/";
@@ -57,13 +58,26 @@ const PostPage = async (props: any) => {
         currentSlug={slug}
         seriesTitle={seriesTag!}
       />
-      <div className="text-slate-400">
+      <div className="text-white">
         <h1 className="text-3xl ">{post.data.title}</h1>
+        <br />
+        <p>
+          {post.data.date
+            .toLocaleDateString("ko-KR", {
+              year: "numeric",
+              month: "2-digit",
+              day: "2-digit",
+            })
+            .replace(/\. /g, "-")
+            .replace(/\./, "")}
+        </p>
+
         <article className="prose prose-invert lg:prose-xl">
           <Markdown>{post.content}</Markdown>
         </article>
       </div>
       <SeriesNavigation seriesPosts={sortedSeriesPosts} currentSlug={slug} />
+      <CustomFooter />
     </div>
   );
 };

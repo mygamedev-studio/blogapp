@@ -14,7 +14,7 @@ tags:
 ### 플레임 엔진이란?
 
 공식홈페이지 링크 ↓
-<a href='https://flame-engine.org/'>
+<a href='https://flame-engine.org/' target='_blank' rel='noreferrer'>
 <img src="/images/flame-engine/flame-engine-logo.png" className="h-30 mx-auto border rounded-md p-4"/>
 </a>
 

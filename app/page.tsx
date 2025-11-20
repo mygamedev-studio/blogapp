@@ -3,6 +3,7 @@ import { getPostMetadata } from "@/components/getPostMetaData";
 import PostPreview from "@/components/PostPreview";
 import PostFilterContainer from "@/components/PostFilterContainer";
 import CustomFooter from "@/components/Footer";
+import NextJsPostList from "@/components/NextJsPostList";
 
 export const dynamic = "force-static";
 
@@ -10,6 +11,9 @@ export default function Home() {
   const postMetadata = getPostMetadata();
   const sortedPosts = postMetadata.sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+  );
+  const nextjsPosts = sortedPosts.filter((post) =>
+    post.tags.includes("nextjs"),
   );
 
   const recentPosts = sortedPosts
@@ -39,19 +43,21 @@ export default function Home() {
           <p>게임을 완성하는 과정을 기록합니다.</p>
         </div>
         <Link href={flameEngineStartLink} passHref>
-          <button className="bg-blue-600 hover:bg-blue-800 text-white py-3 px-8 rounded-md text-lg transition duration-300 shadow-xl shadow-slate-700">
+          <button className="bg-blue-600 hover:bg-blue-800 text-white py-3 px-8 rounded-md text-lg transition duration-300 shadow-xl shadow-slate-700 cursor-pointer">
             <p>🔥Flame Engine을 이용한</p>
             <p>DevLog시리즈 시작하기</p>
           </button>
         </Link>
       </section>
+
       <section className="mt-12">
         <h2 className="text-2xl font-bold mb-6 border-b pb-2">Recent Update</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {recentPosts}
         </div>
+        <div className="my-16 border-t pt-8"></div>
       </section>
-      <div className="my-16 border-t pt-8"></div>
+
       <section>
         <div className="text-2xl font-bold mb-6 border-b pb-2">
           <h2>✨ Side Contents:</h2>
@@ -60,15 +66,10 @@ export default function Home() {
         <p className="text-lg text-gray-600 dark:text-gray-400 mb-6">
           지금 보고 계신 정적 블로그를 만드는 과정과 코드를 함께 공유합니다.
         </p>
-        {sortedPosts.find((post) => post.tags.includes("nextjs"))?.title && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <PostPreview
-              {...sortedPosts.find((post) => post.tags.includes("nextjs"))!}
-            />
-          </div>
-        )}
+        <NextJsPostList posts={nextjsPosts} />
+        <div className="my-16 border-t pt-8"></div>
       </section>
-      <div className="my-16 border-t pt-8"></div>
+
       <section>
         <PostFilterContainer sortedPosts={sortedPosts} />
       </section>
