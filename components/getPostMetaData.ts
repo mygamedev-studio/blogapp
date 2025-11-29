@@ -2,12 +2,12 @@ import fs from "fs";
 import matter from "gray-matter";
 import { PostMetaData } from "./PostMetaData";
 
-export const getPostMetadata = (): PostMetaData[] => {
-  const folder = "posts";
+export const getPostMetadata = (locale: string = "ko"): PostMetaData[] => {
+  const folder = `posts/${locale}`;
   const files = fs.readdirSync(folder);
   const markdownPosts = files.filter((file) => file.endsWith(".md"));
   const posts = markdownPosts.map((fileName) => {
-    const fileContents = fs.readFileSync(`posts/${fileName}`, "utf8");
+    const fileContents = fs.readFileSync(`posts/${locale}/${fileName}`, "utf8");
     const matterResult = matter(fileContents);
     return {
       title: matterResult.data.title,
@@ -21,7 +21,7 @@ export const getPostMetadata = (): PostMetaData[] => {
 };
 
 export const getAllUniqueTags = (): string[] => {
-  const allPosts = getPostMetadata(); // 모든 포스트 메타데이터를 가져옵니다.
+  const allPosts = getPostMetadata("ko"); // 모든 포스트 메타데이터를 가져옵니다.
   const tagsSet = new Set<string>();
 
   allPosts.forEach((post) => {

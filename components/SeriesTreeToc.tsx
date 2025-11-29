@@ -8,12 +8,14 @@ interface SeriesTreeTocProps {
   seriesPosts: PostMetaData[];
   currentSlug: string;
   seriesTitle: string;
+  locale: string;
 }
 
 export default function SeriesTreeToc({
   seriesPosts,
   currentSlug,
   seriesTitle,
+  locale,
 }: SeriesTreeTocProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -70,7 +72,7 @@ export default function SeriesTreeToc({
           {seriesPosts.map((post, index) => (
             <li key={post.slug}>
               <Link
-                href={`/posts/${post.slug}`}
+                href={`/${locale}/posts/${post.slug}`}
                 onClick={toggleExpansion} // 클릭 시 드롭다운 닫기
                 className={`block p-2 rounded transition-colors duration-200 
                                     ${

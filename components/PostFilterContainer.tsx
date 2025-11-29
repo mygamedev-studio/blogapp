@@ -9,8 +9,10 @@ import { PostMetaData } from "./PostMetaData";
 // 이 컴포넌트가 태그 상태를 관리하고 필터링 로직을 수행합니다.
 export default function PostFilterContainer({
   sortedPosts,
+  locale,
 }: {
   sortedPosts: PostMetaData[];
+  locale: string;
 }) {
   // 선택된 태그 상태를 useState로 관리
   const [selectedTag, setSelectedTag] = useState<string | "all">("all");
@@ -31,7 +33,7 @@ export default function PostFilterContainer({
   }, [sortedPosts, selectedTag]);
 
   const postPreviews = filteredPosts.map((post) => (
-    <PostPreview key={post.slug} {...post} />
+    <PostPreview key={post.slug} {...post} locale={locale} />
   ));
 
   return (

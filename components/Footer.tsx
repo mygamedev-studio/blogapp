@@ -1,12 +1,15 @@
 import Link from "next/link";
 import { FaGithub, FaXTwitter, FaYoutube } from "react-icons/fa6";
+import { Locale } from "../i18n-config";
+import { getDictionary } from "../get-dictionary";
 
-export default function CustomFooter() {
+export default function CustomFooter({ locale }: { locale: Locale }) {
+  const dict = getDictionary(locale);
   return (
     <>
       <div className="my-10 "></div>
       <footer className="text-center ">
-        <h2 className="text-2xl font-bold mb-4">Contact Me!</h2>
+        <h2 className="text-2xl font-bold mb-4">{dict.footer.contact}</h2>
         <div className="flex justify-center gap-6 mb-4">
           <Link
             href="https://x.com/MyGameDevStudio "
@@ -31,10 +34,10 @@ export default function CustomFooter() {
           </Link>
         </div>
         <p className="text-sm text-white mt-4">
-          © {new Date().getFullYear()} My Game Dev Blog. All rights reserved.
+          © {new Date().getFullYear()} {dict.footer.rights}
         </p>
         <p className="text-sm text-white">
-          Please give me Feedback or questions on X.
+          {dict.footer.feedback}
         </p>
       </footer>
     </>

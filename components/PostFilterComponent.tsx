@@ -8,8 +8,10 @@ import { PostMetaData } from "./PostMetaData"; // PostMetaData 타입 정의가 
 // 서버 컴포넌트에서 정적으로 가져온 데이터를 프롭스로 받습니다.
 export default function PostFilterComponent({
   sortedPosts,
+  locale,
 }: {
   sortedPosts: PostMetaData[];
+  locale: string;
 }) {
   // 클라이언트 컴포넌트에서만 사용할 수 있는 useSearchParams 훅 사용
   const searchParams = useSearchParams();
@@ -25,7 +27,7 @@ export default function PostFilterComponent({
       : sortedPosts;
 
   const postPreviews = filteredPosts.map((post) => (
-    <PostPreview key={post.slug} {...post} />
+    <PostPreview key={post.slug} {...post} locale={locale} />
   ));
 
   return (

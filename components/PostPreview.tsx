@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { PostMetaData } from "./PostMetaData";
 
-const PostPreview = (props: PostMetaData) => {
+const PostPreview = (props: PostMetaData & { locale: string }) => {
   return (
-    <Link href={`/posts/${props.slug}`}>
+    <Link href={`/${props.locale}/posts/${props.slug}`}>
       <div className="flex h-36 flex-col justify-between rounded-md bg-slate-800 p-4 shadow-inner shadow-slate-600">
         <div className="grow">
           <h2 className="truncate font-bold text-blue-300 hover:underline">
@@ -13,7 +13,7 @@ const PostPreview = (props: PostMetaData) => {
         </div>
         <p className="text-sm text-slate-500">
           {new Date(props.date)
-            .toLocaleDateString("ko-KR", {
+            .toLocaleDateString(props.locale === 'ko' ? "ko-KR" : props.locale === 'ja' ? "ja-JP" : "en-US", {
               year: "numeric",
               month: "2-digit",
               day: "2-digit",

@@ -6,11 +6,13 @@ import { PostMetaData } from "./PostMetaData";
 interface SeriesNavigationProps {
   seriesPosts: PostMetaData[]; // 이미 정렬된 해당 시리즈의 모든 포스트
   currentSlug: string;
+  locale: string;
 }
 
 export default function SeriesNavigation({
   seriesPosts,
   currentSlug,
+  locale
 }: SeriesNavigationProps) {
   // 1. 현재 포스트의 인덱스를 찾습니다.
   const currentIndex = seriesPosts.findIndex(
@@ -37,7 +39,7 @@ export default function SeriesNavigation({
       {/* 이전 포스트 버튼 */}
       <div className="text-left">
         {previousPost && (
-          <Link href={`/posts/${previousPost.slug}`} className={buttonStyle}>
+          <Link href={`/${locale}/posts/${previousPost.slug}`} className={buttonStyle}>
             <span className={textStyle}>← Previous Post</span>
             <h4 className="font-semibold">{previousPost.title}</h4>
           </Link>
@@ -47,7 +49,7 @@ export default function SeriesNavigation({
       {/* 다음 포스트 버튼 */}
       <div className="text-right">
         {nextPost && (
-          <Link href={`/posts/${nextPost.slug}`} className={buttonStyle}>
+          <Link href={`/${locale}/posts/${nextPost.slug}`} className={buttonStyle}>
             <span className={textStyle}>Next Post →</span>
             <h4 className="font-semibold">{nextPost.title}</h4>
           </Link>
