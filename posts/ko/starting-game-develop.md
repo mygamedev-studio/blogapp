@@ -33,7 +33,7 @@ tags:
 다음 포스트에서는, 플레임 엔진을 파헤치고 제가 직접 만든 게임들을 공개할 예정입니다. 플러터 덕후가 플레임 엔진을 만나 어떤 게임들을 만들었는지, 기대해주세요!
 
 <div className="flex justify-center">
-  <a href='/posts/flame-engine'>
+  <a href='/ko/posts/flame-engine'>
     <button className="bg-blue-600 hover:bg-blue-800 text-white py-3 px-8 rounded-md text-lg transition duration-300 shadow-xl shadow-slate-700 cursor-pointer">
       <p>🔥Flame Engine을 이용한</p>
       <p>DevLog시리즈 시작하기</p>
