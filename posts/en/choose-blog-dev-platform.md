@@ -49,13 +49,13 @@ When I looked for ways to create a static website (SSG), I learned that using **
 
 I compared the main differences between building a blog with Next.js and pure React.
 
-| Item | Next.js (Framework) | Pure React (Library) |
-| --- | --- | --- |
-| **Rendering Method** | SSG (Static), SSR (Server) | CSR (Client) |
-| **SEO** | **Excellent** | Relatively Disadvantageous |
-| **Initial Loading Speed** | **Very Fast** | Can be slow |
-| **Routing** | File-based automatic configuration | Manual configuration after library installation |
-| **Suitable Use** | Blogs, Shopping Malls, Websites | Web Applications, Dashboards |
+| Item                      | Next.js (Framework)                | Pure React (Library)                            |
+| ------------------------- | ---------------------------------- | ----------------------------------------------- |
+| **Rendering Method**      | SSG (Static), SSR (Server)         | CSR (Client)                                    |
+| **SEO**                   | **Excellent**                      | Relatively Disadvantageous                      |
+| **Initial Loading Speed** | **Very Fast**                      | Can be slow                                     |
+| **Routing**               | File-based automatic configuration | Manual configuration after library installation |
+| **Suitable Use**          | Blogs, Shopping Malls, Websites    | Web Applications, Dashboards                    |
 
 The conclusion tipped towards Next.js. Although I had no experience using Next.js directly, I felt I could do it if it was at the level of making a blog. It was time to protect my pride as a web developer!
 

@@ -6,12 +6,14 @@ tags:
   - blog
   - FlameEngine
 ---
+
 ### 自作初ゲーム、カクツキの沼にハマる
 
 こんにちは！ゲーム開発日誌を記録中の「MyGameDev」です。今日は私が初めて自分の手で作ったゲーム、**CoinMillionaire**の開発記をお話ししようと思います。野心的に始めましたが、結果は悲惨なフレームレート低下でした...
 
 ### 実際のゲームリンク
-https://play.google.com/store/apps/details?id=com.mygame.CoinMillionaire
+
+<BannerLink href='https://play.google.com/store/apps/details?id=com.mygame.CoinMillionaire' text='CoinMillionaire' imageSrc='/images/coin-millionaire/icon.png'/>
 
 ### ゲームコンセプト：シンプルだけど中毒性あり！
 
@@ -33,11 +35,28 @@ https://play.google.com/store/apps/details?id=com.mygame.CoinMillionaire
 
 私はこのゲームを作るためにUnityで計5つのシーン（Scene）を構成しました。
 
-- メインメニューシーン
-- チュートリアルシーン
-- ゲームシーン（実際のプレイ）
-- クリアシーン
-- ゲームオーバーシーン
+<div className="grid grid-cols-3 gap-4">
+  <div className="flex flex-col items-center">
+    <p className="text-center font-bold !m-0">Main Menu Scene</p>
+    <img src="/images/coin-millionaire/home-screen.png" style='margin:0;' alt="Main Menu Scene"/>
+  </div>
+  <div className="flex flex-col items-center">
+    <p className="text-center font-bold !m-0">Tutorial Scene</p>
+    <img src="/images/coin-millionaire/tutorial-screen.png" style='margin:0;' alt="Tutorial Scene"/>
+  </div>
+  <div className="flex flex-col items-center">
+    <p className="text-center font-bold !m-0">Game Scene</p>
+    <img src="/images/coin-millionaire/game-screen.png" style='margin:0;' alt="Game Scene"/>
+  </div>
+  <div className="flex flex-col items-center">
+    <p className="text-center font-bold !m-0">Clear Scene</p>
+    <img src="/images/coin-millionaire/clear-screen.png" style='margin:0;' alt="Clear Scene"/>
+  </div>
+  <div className="flex flex-col items-center">
+    <p className="text-center font-bold !m-0">Game Over Scene</p>
+    <img src="/images/coin-millionaire/gameover-screen.png" style='margin:0;' alt="Game Over Scene"/>
+  </div>
+</div>
 
 ステージをクリアするたびに`ゲームシーン`から`クリアシーン`に移り、次のステージを始める時は**既存のゲームシーンのすべてのオブジェクトを消して（削除）新しいゲームシーンをロード**する方式で設計しました。この時まではこの方式が問題になるとは思いませんでした。
 

@@ -9,11 +9,15 @@ import { getDictionary } from "../../get-dictionary";
 
 export const dynamic = "force-static";
 
-export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
   const { lang } = (await params) as { lang: Locale };
   const postMetadata = getPostMetadata(lang);
   const dict = getDictionary(lang);
-  
+
   const sortedPosts = postMetadata.sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
   );
@@ -56,7 +60,9 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       </section>
 
       <section className="mt-12">
-        <h2 className="text-2xl font-bold mb-6 border-b pb-2">{dict.recentUpdate}</h2>
+        <h2 className="text-2xl font-bold mb-6 border-b pb-2">
+          {dict.recentUpdate}
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {recentPosts}
         </div>

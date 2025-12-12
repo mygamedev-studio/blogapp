@@ -6,6 +6,7 @@ tags:
   - blog
   - FlameEngine
 ---
+
 ### 유니티 배신자의 고군분투: 플레임 엔진 배우기
 
 안녕하세요! 유니티의 쓴맛을 보고 새로운 엔진을 찾아 떠났던 'MyGameDev'입니다. 오늘은 저의 구원자가 되어준 **플레임 엔진(Flame Engine)**을 어떻게 공부하기 시작했고, 개발 과정에서 어떤 점이 좋았고 어려웠는지 솔직하게 공유해 드릴게요.
@@ -18,8 +19,8 @@ tags:
 
 그러던 중, 제 눈에 들어온 한 줄기 빛 같은 유튜브 재생 목록이 있었습니다!
 
-- **참고한 유튜브 튜토리얼 (영문):**  
-    https://www.youtube.com/playlist?list=PL_D-RntzgLvYIxI_Kuwy1f7HedxTF2GPK
+**참고한 유튜브 튜토리얼 (영문):**  
+  <BannerLink href='https://www.youtube.com/playlist?list=PL_D-RntzgLvYIxI_Kuwy1f7HedxTF2GPK' text='2D Flutter Game With Flame' imageSrc='https://i.ytimg.com/vi/nKDPT47unDo/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCnAynqpToZPS9o-Vq64NPdhqN77g'/>
 
 이 튜토리얼은 당시 기준(약 1년 전)으로 그나마 최신 자료였으며, 플레임 엔진만 다루는 것이 아니라 플러터와 플레임이 서로 데이터를 주고받는 방식(go_router, riverpod 같은 패키지 사용)까지 포함하고 있어 매우 유용했습니다.
 
@@ -30,52 +31,56 @@ tags:
 플레임 엔진을 사용하면서 놀랐던 점은, 유니티의 스크립트 구조와 매우 흡사해서 적응이 엄청나게 쉬웠다는 것입니다.
 
 - **유사한 라이프사이클:**
-    - 유니티의 `Start()`와 거의 같은 기능을 하는 플레임의 **`onLoad()`**
-    - 유니티의 `Update()`는 플레임에서도 동일하게 **`update()`**
+  - 유니티의 `Start()`와 거의 같은 기능을 하는 플레임의 **`onLoad()`**
+  - 유니티의 `Update()`는 플레임에서도 동일하게 **`update()`**
 - **컴포넌트 기반:** `addComponent()` 메서드로 오브젝트(컴포넌트)를 배치하는 방식은 유니티의 GameObject에 Component를 추가하는 것과 유사했습니다. `PositionComponent`를 상속받아 위치를 가진 게임 요소를 정의하는 방식이 매우 직관적이었죠.
+- **쉬운 애니메이션:** 스프라이트 시트(여러 이미지를 합친 한 장의 이미지)에서 애니메이션을 만드는 과정도 유니티보다 훨씬 간단했습니다.
 - **플러터와의 환상적인 궁합:** 플레임 엔진은 결국 플러터 위젯의 일종입니다. 덕분에 게임 화면을 다른 플러터 위젯으로 감싸서 사용하는 것이 가능했습니다. (예: 광고 배너를 게임 위에 얹기+ 위젯안에 게임 넣기)
-```dart
-    Widget build(BuildContext context) {
-        return Scaffold(
-            body: SafeArea(
-                bottom: false,
-                child: Column(
-                    children: [
-                        AdController(key: _adControllerKey, game: game), // 광고 위젯
-                        Expanded(
-                            child: Center(
-                                child: FittedBox(
-                                    child: SizedBox(
-                                        width: gameWidth,
-                                        height: gameHeight,
-                                        child: GameWidget(game: game), // 게임 위젯
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ],
+
+``` dart
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        bottom: false,
+        child: Column(
+          children: [
+            AdController(key: _adControllerKey, game: game),//광고위젯
+            Expanded(
+              child: Center(
+                child: FittedBox(
+                  child: SizedBox(
+                    width: gameWidth,
+                    height: gameHeight,
+                    child: GameWidget(game: game),//게임위젯
+                  ),
                 ),
+              ),
             ),
-        );
-    }
-    ```
-    
-    코드를 사용할 때는 주의가 필요합니다.
-    
-- **쉬운 애니메이션:** 스프라이트 시트(여러 이미지를 합친 한 장의 이미지)에서 애니메이션을 만드는 과정도 유니티보다 훨씬 간단했습니다.
+          ],
+        ),
+      ),
+    );
+  }
+```
+
+
+
+
 
 ### [어려웠던 점] 라우터와 사운드의 늪
 
 물론 장점만 있던 것은 아닙니다. 두 가지 큰 난관에 부딪혔습니다.
 #### 1. 라우터 컴포넌트의 배신
 
-유니티 씬(Scene)처럼 게임 씬, 클리어 씬을 오가며 스테이지마다 초기화된 새로운 컴포넌트를 로드하고 싶었습니다. 하지만 플레임의 `RouterComponent`는 한 번 로드된 컴포넌트를 메모리에서 지우지 않고 가지고 있다가 다시 불러오는 방식이었습니다. 스테이지 클리어 전의 오브젝트들이 다음 스테이지에 그대로 남아있는 대참사가 벌어졌죠. 이 방식은 RPG게임에서 메뉴를 불러오거나, 월드맵을 확인후 다시 게임으로 돌아가는 방식과 같은 활용법이라고 느껴졌습니다. 
+유니티 씬(Scene)처럼 게임 씬, 클리어 씬을 오가며 스테이지마다 초기화된 새로운 컴포넌트를 로드하고 싶었습니다. 하지만 플레임의 `RouterComponent`는 한 번 로드된 컴포넌트를 메모리에서 지우지 않고 가지고 있다가 다시 불러오는 방식이었습니다. 스테이지 클리어 전의 오브젝트들이 다음 스테이지에 그대로 남아있는 대참사가 벌어졌죠. 이 방식은 RPG게임에서 메뉴를 불러오거나, 월드맵을 확인후 다시 게임으로 돌아가는 방식과 같은 활용법이라고 느껴졌습니다.
 
 - **해결:** 결국 라우터 컴포넌트 사용을 포기하고, 컴포넌트를 수동으로 지우고 다시 생성하는 방식으로 구현했습니다. (역시 수동이 최고...)
 
 #### 2. 안드로이드에서의 사운드 지연 문제
 
-`flame-audio` 패키지를 사용하여 배경 음악과 효과음을 넣었는데, iOS나 데스크톱 버전에서는 아무 문제 없었지만 **안드로이드로 빌드하니 사운드가 엄청나게 느려지고 게임 전체 프레임까지 떨어지는 문제**가 발생했습니다.
+`flame-audio` 패키지를 사용하여 배경 음악과 효과음을 넣었는데, iOS나 데스크톱 버전에서는 아무 문제 없었지만 **안드로이드로 빌드하니 사운드가 엄청나게 느려 플레이되고 게임 전체 프레임까지 떨어지는 문제**가 발생했습니다. 찾아보니 이 문제를 겪은 사람은 저뿐만이 아니었지요.
+
+이슈링크: <a href='https://github.com/flame-engine/flame/issues/3367' target='_blank'>Flame issue 3367</a>
 
 - **해결:** 이 이슈는 플레임 자체의 문제로 보였고, 결국 **`flutter_soloud`**라는 다른 오디오 패키지로 변경하여 해결했습니다. (조금 복잡했지만 작동은 되더군요!)
 
@@ -84,3 +89,4 @@ tags:
 어려움도 있었지만, 플레임 엔진으로 게임을 만드는 과정은 유니티 때보다 훨씬 즐거웠습니다. 코드로 모든 것을 제어하는 방식이 저의 개발 성향과 잘 맞았던 것 같습니다.
 
 다음 포스트에서는 제가 플레임 엔진으로 만든 코인 밀리어네어에서 여러분과 공유하면 좋겠는 부분을 추려서 이야기해볼께요. 기대해주세요!
+````

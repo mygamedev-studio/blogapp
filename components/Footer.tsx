@@ -36,9 +36,7 @@ export default function CustomFooter({ locale }: { locale: Locale }) {
         <p className="text-sm text-white mt-4">
           © {new Date().getFullYear()} {dict.footer.rights}
         </p>
-        <p className="text-sm text-white">
-          {dict.footer.feedback}
-        </p>
+        <p className="text-sm text-white">{dict.footer.feedback}</p>
       </footer>
     </>
   );

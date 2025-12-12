@@ -12,7 +12,7 @@ interface SeriesNavigationProps {
 export default function SeriesNavigation({
   seriesPosts,
   currentSlug,
-  locale
+  locale,
 }: SeriesNavigationProps) {
   // 1. 현재 포스트의 인덱스를 찾습니다.
   const currentIndex = seriesPosts.findIndex(
@@ -39,7 +39,10 @@ export default function SeriesNavigation({
       {/* 이전 포스트 버튼 */}
       <div className="text-left">
         {previousPost && (
-          <Link href={`/${locale}/posts/${previousPost.slug}`} className={buttonStyle}>
+          <Link
+            href={`/${locale}/posts/${previousPost.slug}`}
+            className={buttonStyle}
+          >
             <span className={textStyle}>← Previous Post</span>
             <h4 className="font-semibold">{previousPost.title}</h4>
           </Link>
@@ -49,7 +52,10 @@ export default function SeriesNavigation({
       {/* 다음 포스트 버튼 */}
       <div className="text-right">
         {nextPost && (
-          <Link href={`/${locale}/posts/${nextPost.slug}`} className={buttonStyle}>
+          <Link
+            href={`/${locale}/posts/${nextPost.slug}`}
+            className={buttonStyle}
+          >
             <span className={textStyle}>Next Post →</span>
             <h4 className="font-semibold">{nextPost.title}</h4>
           </Link>

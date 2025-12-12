@@ -11,17 +11,19 @@ const orbitFont = Orbit({
 export default function StickyHeader() {
   const header = (
     <>
-    <header className="sticky top-0 z-10 ">
-      <Link href="/" className="rounded-md justify-center">
-        <div className="flex justify-center items-center bg-slate-800 p-4 mt-6 rounded-md">
-          <img src="/images/logo.png" width={60} height={30} />
-          <h1 className="text-3xl text-white font-bold">&nbsp;GameDev Blog</h1>
+      <header className="sticky top-0 z-10 ">
+        <Link href="/" className="rounded-md justify-center">
+          <div className="flex justify-center items-center bg-slate-800 p-4 mt-6 rounded-md">
+            <img src="/images/logo.png" width={60} height={30} />
+            <h1 className="text-3xl text-white font-bold">
+              &nbsp;GameDev Blog
+            </h1>
+          </div>
+        </Link>
+        <div className="flex justify-end">
+          <LanguageSwitcher />
         </div>
-      </Link>
-    <div className= 'flex justify-end'>
-    <LanguageSwitcher />
-    </div>
-    </header>
+      </header>
     </>
   );
   return header;

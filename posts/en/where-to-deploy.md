@@ -26,15 +26,15 @@ There are four services I considered.
 
 I compared the pros and cons and deployment methods based on the free plan of each service. (I bothered my AI friend quite a bit to make this table.)
 
-| Item | GitHub Pages | Netlify | Cloudflare Pages | Vercel |
-| --- | --- | --- | --- | --- |
-| **Price** | $0 | $0 | $0 | $0 |
-| **Build Time** | No limit | 300 mins/month | 500 times/month (Unlimited time) | 100 hours/month |
-| **Bandwidth** | 100GB/month | 100GB/month | **Unlimited** | 100GB/month |
-| **DDoS Protection** | Basic provided | Built-in auto protection | **Powerful Cloudflare protection** | Built-in auto protection |
-| **Deployment Method (Automation)** | **GitHub Actions required** | **Auto build on Git push** | **Auto build on Git push** | **Auto build on Git push** |
-| **Bill Shock Risk** | Low (Service restricted when limit exceeded) | **Exists** | **None (Unlimited)** | **Exists** |
-| **Optimization** | General static site | General | Cloudflare infrastructure | **Optimized for Next.js** |
+| Item                               | GitHub Pages                                 | Netlify                    | Cloudflare Pages                   | Vercel                     |
+| ---------------------------------- | -------------------------------------------- | -------------------------- | ---------------------------------- | -------------------------- |
+| **Price**                          | $0                                           | $0                         | $0                                 | $0                         |
+| **Build Time**                     | No limit                                     | 300 mins/month             | 500 times/month (Unlimited time)   | 100 hours/month            |
+| **Bandwidth**                      | 100GB/month                                  | 100GB/month                | **Unlimited**                      | 100GB/month                |
+| **DDoS Protection**                | Basic provided                               | Built-in auto protection   | **Powerful Cloudflare protection** | Built-in auto protection   |
+| **Deployment Method (Automation)** | **GitHub Actions required**                  | **Auto build on Git push** | **Auto build on Git push**         | **Auto build on Git push** |
+| **Bill Shock Risk**                | Low (Service restricted when limit exceeded) | **Exists**                 | **None (Unlimited)**               | **Exists**                 |
+| **Optimization**                   | General static site                          | General                    | Cloudflare infrastructure          | **Optimized for Next.js**  |
 
 ### The Core of the Worry: How to Avoid Bill Shock
 

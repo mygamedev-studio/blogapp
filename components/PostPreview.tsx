@@ -13,11 +13,18 @@ const PostPreview = (props: PostMetaData & { locale: string }) => {
         </div>
         <p className="text-sm text-slate-500">
           {new Date(props.date)
-            .toLocaleDateString(props.locale === 'ko' ? "ko-KR" : props.locale === 'ja' ? "ja-JP" : "en-US", {
-              year: "numeric",
-              month: "2-digit",
-              day: "2-digit",
-            })
+            .toLocaleDateString(
+              props.locale === "ko"
+                ? "ko-KR"
+                : props.locale === "ja"
+                  ? "ja-JP"
+                  : "en-US",
+              {
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit",
+              },
+            )
             .replace(/\. /g, "-")
             .replace(/\./, "")}
         </p>

@@ -6,12 +6,14 @@ tags:
   - blog
   - FlameEngine
 ---
+
 ### My First Game, Falling into the Swamp of Lag
 
 Hello! I'm 'MyGameDev', recording my game development journal. Today, I'd like to tell you the story of developing **CoinMillionaire**, the first game I made with my own hands. I started ambitiously, but the result was disastrous frame drops...
 
-### Actual Game Link
-https://play.google.com/store/apps/details?id=com.mygame.CoinMillionaire
+### Game Link
+
+<BannerLink href='https://play.google.com/store/apps/details?id=com.mygame.CoinMillionaire' text='CoinMillionaire' imageSrc='/images/coin-millionaire/icon.png'/>
 
 ### Game Concept: Simple but Addictive!
 
@@ -33,11 +35,28 @@ I also added three items to add fun to the game.
 
 I organized a total of 5 scenes in Unity to make this game.
 
-- Main Menu Scene
-- Tutorial Scene
-- Game Scene (Actual Play)
-- Clear Scene
-- Game Over Scene
+<div className="grid grid-cols-3 gap-4">
+  <div className="flex flex-col items-center">
+    <p className="text-center font-bold !m-0">Main Menu Scene</p>
+    <img src="/images/coin-millionaire/home-screen.png" style='margin:0;' alt="Main Menu Scene"/>
+  </div>
+  <div className="flex flex-col items-center">
+    <p className="text-center font-bold !m-0">Tutorial Scene</p>
+    <img src="/images/coin-millionaire/tutorial-screen.png" style='margin:0;' alt="Tutorial Scene"/>
+  </div>
+  <div className="flex flex-col items-center">
+    <p className="text-center font-bold !m-0">Game Scene</p>
+    <img src="/images/coin-millionaire/game-screen.png" style='margin:0;' alt="Game Scene"/>
+  </div>
+  <div className="flex flex-col items-center">
+    <p className="text-center font-bold !m-0">Clear Scene</p>
+    <img src="/images/coin-millionaire/clear-screen.png" style='margin:0;' alt="Clear Scene"/>
+  </div>
+  <div className="flex flex-col items-center">
+    <p className="text-center font-bold !m-0">Game Over Scene</p>
+    <img src="/images/coin-millionaire/gameover-screen.png" style='margin:0;' alt="Game Over Scene"/>
+  </div>
+</div>
 
 Whenever a stage was cleared, it went from the `Game Scene` to the `Clear Scene`, and when starting the next stage, I designed it to **delete all objects in the existing game scene and load a new game scene**. Until then, I didn't know this method would be a problem.
 

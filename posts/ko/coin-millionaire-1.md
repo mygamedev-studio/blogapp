@@ -6,12 +6,14 @@ tags:
   - blog
   - FlameEngine
 ---
+
 ### 내 손으로 만든 첫 게임, 버벅임의 늪에 빠지다
 
 안녕하세요! 게임 개발 일지를 기록 중인 'MyGameDev'입니다. 오늘은 제가 처음으로 제 손으로 직접 만든 게임, **CoinMillionaire** 개발기를 들려드리려 합니다. 야심 차게 시작했지만, 결과는 처참한 프레임 드랍이었죠...
 
-### 실제 게임 링크 
-https://play.google.com/store/apps/details?id=com.mygame.CoinMillionaire
+### 실제 게임 링크
+
+<BannerLink href='https://play.google.com/store/apps/details?id=com.mygame.CoinMillionaire' text='CoinMillionaire' imageSrc='/images/coin-millionaire/icon.png'/>
 
 ### 게임 컨셉: 단순하지만 중독성 있게!
 
@@ -33,11 +35,28 @@ https://play.google.com/store/apps/details?id=com.mygame.CoinMillionaire
 
 저는 이 게임을 만들기 위해 유니티로 총 5개의 씬(Scene)을 구성했습니다.
 
-- 메인 메뉴 씬
-- 튜토리얼 씬
-- 게임 씬 (실제 플레이)
-- 클리어 씬
-- 게임 오버 씬
+<div className="grid grid-cols-3 gap-4">
+  <div className="flex flex-col items-center">
+    <p className="text-center font-bold !m-0">Main Menu Scene</p>
+    <img src="/images/coin-millionaire/home-screen.png" style='margin:0;' alt="Main Menu Scene"/>
+  </div>
+  <div className="flex flex-col items-center">
+    <p className="text-center font-bold !m-0">Tutorial Scene</p>
+    <img src="/images/coin-millionaire/tutorial-screen.png" style='margin:0;' alt="Tutorial Scene"/>
+  </div>
+  <div className="flex flex-col items-center">
+    <p className="text-center font-bold !m-0">Game Scene</p>
+    <img src="/images/coin-millionaire/game-screen.png" style='margin:0;' alt="Game Scene"/>
+  </div>
+  <div className="flex flex-col items-center">
+    <p className="text-center font-bold !m-0">Clear Scene</p>
+    <img src="/images/coin-millionaire/clear-screen.png" style='margin:0;' alt="Clear Scene"/>
+  </div>
+  <div className="flex flex-col items-center">
+    <p className="text-center font-bold !m-0">Game Over Scene</p>
+    <img src="/images/coin-millionaire/gameover-screen.png" style='margin:0;' alt="Game Over Scene"/>
+  </div>
+</div>
 
 스테이지를 클리어할 때마다 `게임 씬`에서 `클리어 씬`으로 넘어갔고, 다음 스테이지를 시작할 때는 **기존 게임 씬의 모든 오브젝트를 지우고(삭제) 새로운 게임 씬을 로딩**하는 방식으로 설계했습니다. 이때까지만 해도 이 방식이 문제가 될 줄은 몰랐습니다.
 
